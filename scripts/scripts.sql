@@ -235,3 +235,26 @@ SELECT
     ROW_NUMBER() OVER (ORDER BY v_pre_final_rank.total_points DESC, COALESCE(v_rally_wins.wins, 0) DESC) AS final_rank
 FROM v_pre_final_rank
 LEFT JOIN v_rally_wins ON v_rally_wins.id_pilote = v_pre_final_rank.id_pilote;
+
+
+--- CATEGORIE FINAL RANK ---
+-- NEW PRE FINAL
+CREATE OR REPLACE VIEW v_pre_categorie_rank AS
+SELECT
+    v_rally_categorie_ranked_points.id_pilote,
+    v_rally_categorie_ranked_points.nom_pilote,
+    v_rally_categorie_ranked_points.nom_categorie,
+    v_rally_categorie_ranked_points.id_categorie,
+    sum(v_rally_categorie_ranked_points.temps) as total_temps,
+    SUM(v_rally_categorie_ranked_points.points) AS total_points
+FROM v_rally_categorie_ranked_points
+GROUP BY v_rally_categorie_ranked_points.id_pilote,
+         v_rally_categorie_ranked_points.nom_pilote,
+         v_rally_categorie_ranked_points.nom_categorie,
+         v_rally_categorie_ranked_points.id_categorie;
+-- NEW FINAL
+CREATE OR REPLACE VIEW v_categorie_rank AS
+SELECT
+    v_pre_categorie_rank.*,
+    ROW_NUMBER() OVER (ORDER BY v_pre_categorie_rank.id_categorie,v_pre_categorie_rank.total_points DESC ) AS rank
+FROM v_pre_categorie_rank;
