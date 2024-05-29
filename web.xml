@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
   <!-- Configuration des servlets -->
   <servlet>
     <servlet-name>finalRank</servlet-name>
@@ -18,12 +17,12 @@
   <!-- Mapping des URLs pour chaque servlet -->
   <servlet-mapping>
     <servlet-name>finalRank</servlet-name>
-    <url-pattern>rally/api/finalRank</url-pattern>
+    <url-pattern>/rally/api/finalRank</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
     <servlet-name>categorieRank</servlet-name>
-    <url-pattern>rally/api/categorieRank</url-pattern>
+    <url-pattern>/rally/api/categorieRank</url-pattern>
   </servlet-mapping>
 
 </web-app>

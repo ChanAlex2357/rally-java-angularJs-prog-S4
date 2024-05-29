@@ -57,7 +57,7 @@ set bin = %work_dir%\bin
     :: Transfert des librairies
     xcopy "%lib%" "%web_inf%\lib" /s /e /h > NUL
     :: Copier les fichiers compiler par l'ide dans WEB-INF\classes
-    xcopy "%bin%" "%web_inf_cls%" /s /e /h > NUL
+    xcopy .\bin .\tmp\WEB-INF\classes /s /e /h > NUL
 
 @REM @REM Compression en War
     cd %temp%

@@ -19,7 +19,7 @@ rally_app.config(['$routeProvider' ,  $routeProvider =>{
         });
 }]);
 
-rallyApp.filter('formatTime', function() {
+rally_app.filter('formatTime', function() {
     return function(totalTime) {
         const hours = parseInt(totalTime.substring(0, 2));
         const minutes = parseInt(totalTime.substring(3, 5));
@@ -42,10 +42,10 @@ rallyApp.filter('formatTime', function() {
     };
 });
 
-rallyApp.controller('FinalRankingController', ['$scope', '$http', function ($scope, $http) {
-    $http.get('/rally/api/final-ranking').then(response => $scope.rankings = response.data);
+rally_app.controller('FinalRankingController', ['$scope', '$http', function ($scope, $http) {
+    $http.get('rally/api/finalRank').then(response => $scope.rankings = response.data);
 }]);
 
-rallyApp.controller('CategoryRankController', ['$scope', '$http', function ($scope, $http) {
-    $http.get('/rally/api/category-rank').then(response => $scope.rankings = response.data);
+rally_app.controller('CategoryRankController', ['$scope', '$http', function ($scope, $http) {
+    $http.get('rally/api/categorieRank').then(response => $scope.rankings = response.data);
 }]);
