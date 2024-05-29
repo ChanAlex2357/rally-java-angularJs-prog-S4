@@ -12,6 +12,7 @@ Le dossier de deployement de tomcat peut etre configurer dans le script
 
 ## Dependecies
 
+- **servlet-api.jar** librairie pour prendre en charge les servlets
 - **postgresql-42.6.0.jar** librairie de postgresql
 - **jca-dao.jar** Gestion de l'acces a la base de donnee qui peut etre recuperer avec ce [repository](https://github.com/ChanAlex2357/rally-java-angularJs-prog-S4.git)
 - **gson-2.10.1.jar** Permet de recuperer des donnee sous format JSON depuis Java

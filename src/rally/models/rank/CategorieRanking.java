@@ -1,4 +1,4 @@
-package models.rank;
+package rally.models.rank;
 
 import java.time.LocalTime;
 
@@ -6,8 +6,8 @@ import jca.dao.models.annotations.Attribute;
 import jca.dao.models.annotations.EntityModels;
 import jca.dao.models.annotations.PrimaryKey;
 
-@EntityModels(name = "v_final_rank")
-public class FinalRanking {
+@EntityModels(name = "v_categorie_rank")
+public class CategorieRanking {
     
     @PrimaryKey
     @Attribute(name = "id_pilote")
@@ -22,14 +22,8 @@ public class FinalRanking {
     private LocalTime totalTime;
     @Attribute(name = "total_points")
     private int totalPoints;
-    @Attribute(name = "general_points")
-    private int generalPoints;
-    @Attribute(name = "power_points")
-    private int powerPoints;
-    @Attribute(name = "rally_wins")
-    private int rallyWins;
-    @Attribute(name = "final_rank")
-    private int finalRank;
+    @Attribute(name = "rank")
+    private int categorieRank;
 
     @Override
     public String toString() {
@@ -39,9 +33,10 @@ public class FinalRanking {
             +" | Id Categorie : "+getIdCategorie()
             +" | Nom Categorie : "+getNomCategorie()
             +" | T.Temps : "+getTotalTime()
-            +" | T.Points : "+getTotalPoints();
+            +" | T.Points : "+getTotalPoints()
+            +" | Rank : "+getCategorieRank();
     }
-    public FinalRanking(){};
+    public CategorieRanking(){};
 
     public int getIdPilote() {
         return idPilote;
@@ -79,29 +74,12 @@ public class FinalRanking {
     public void setTotalPoints(int totalPoints) {
         this.totalPoints = totalPoints;
     }
-    public int getGeneralPoints() {
-        return generalPoints;
+   
+    public int getCategorieRank() {
+        return categorieRank;
     }
-    public void setGeneralPoints(int generalPoints) {
-        this.generalPoints = generalPoints;
-    }
-    public int getPowerPoints() {
-        return powerPoints;
-    }
-    public void setPowerPoints(int powerPoints) {
-        this.powerPoints = powerPoints;
-    }
-    public int getRallyWins() {
-        return rallyWins;
-    }
-    public void setRallyWins(int rallyWins) {
-        this.rallyWins = rallyWins;
-    }
-    public int getFinalRank() {
-        return finalRank;
-    }
-    public void setFinalRank(int finalRank) {
-        this.finalRank = finalRank;
+    public void setCategorieRank(int categorieRank) {
+        this.categorieRank = categorieRank;
     }
 
 }
