@@ -14,7 +14,7 @@ set web_xml=%work_dir%\web.xml
 
 rem Le dossier temp dans le dossier de travail
 @REM set temp=%work_dir%\temp
-set temp=%work_dir%\temp
+set temp=%work_dir%\tmp
 
 rem Le dossier contenant les contenus web 
 set web=%work_dir%\web
@@ -49,13 +49,6 @@ set bin = %work_dir%\bin
     set  web_inf_cls=%web_inf%\classes
     mkdir "%web_inf_cls%"
 
-@REM Compilation des fichiers source Java
-    @REM dir "%src%" /s *.java /b /a:a > src.txt 2> NUL
-    @REM for /f "tokens=*" %%a in ('type "src.txt"') do (
-    @REM     start javac -d "%web_inf_cls%" "%%a" -cp "%lib%\*"
-    @REM )
-    @REM del src.txt;
-
 @rem Copie des fichiers avant deployement
     :: Copier le contenue de web dans temp
     xcopy "%web%" "%temp%" /s /e /h > NUL
@@ -66,15 +59,12 @@ set bin = %work_dir%\bin
     :: Copier les fichiers compiler par l'ide dans WEB-INF\classes
     xcopy "%bin%" "%web_inf_cls%" /s /e /h > NUL
 
-@REM Compression en War
-    jar -cvf %war_name%.war -C "%temp%" > NUL
-@REM Deployement du war
-    xcopy /f "%war_name%.war" "%temp%" > NUL
-
+@REM @REM Compression en War
+    cd %temp%
+    jar -cvf %war_name%.war * 
+@REM @REM Deployement du war
     if exist "%webapps%\%war_name%.war"  (
         del "%webapps%\%war_name%.war" 
     )
-    @REM if exist "%webapps%\%war_name%.war" echo "existe"
-
     xcopy /f "%war_name%.war" "%webapps%" > NUL
     echo Deployement Effectuer
