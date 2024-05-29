@@ -6,7 +6,24 @@
          version="4.0">
 
   <!-- Configuration des servlets -->
+  <servlet>
+    <servlet-name>finalRank</servlet-name>
+    <servlet-class>rally.servlets.FinalRankServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>categorieRank</servlet-name>
+    <servlet-class>rally.servlets.CategorieRankServlet</servlet-class>
+  </servlet>
 
   <!-- Mapping des URLs pour chaque servlet -->
+  <servlet-mapping>
+    <servlet-name>finalRank</servlet-name>
+    <url-pattern>/api/finalRank</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>categorieRank</servlet-name>
+    <url-pattern>/api/categorieRank</url-pattern>
+  </servlet-mapping>
 
 </web-app>
