@@ -1,3 +1,27 @@
-<div class="container text-center">
-    <h1 class="h1 text-primary"> See Categorie Ranking </h1>
-</div>
+<div class="row">
+    <div class="mx-auto col-lg-10">
+      <h1 class="my-5">Classement par catégorie</h1>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col "># Rang</th>
+            <th scope="col">ID pilote</th>
+            <th scope="col">Nom du pilote</th>
+            <th scope="col">Categorie</th>
+            <th scope="col">Temps total</th>
+            <th scope="col">Points total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="ranking in rankings">
+            <th scope="row">{{ ranking.categorieRank }}</th>
+            <td>{{ ranking.idPilote }}</td>
+            <td>{{ ranking.nomPilote }}</td>
+            <td>{{ ranking.nomCategorie }}</td>
+            <td>{{ ranking.totalTime }}</td>
+            <td>{{ ranking.totalPoints }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

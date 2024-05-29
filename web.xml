@@ -18,12 +18,12 @@
   <!-- Mapping des URLs pour chaque servlet -->
   <servlet-mapping>
     <servlet-name>finalRank</servlet-name>
-    <url-pattern>/api/finalRank</url-pattern>
+    <url-pattern>rally/api/finalRank</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
     <servlet-name>categorieRank</servlet-name>
-    <url-pattern>/api/categorieRank</url-pattern>
+    <url-pattern>rally/api/categorieRank</url-pattern>
   </servlet-mapping>
 
 </web-app>

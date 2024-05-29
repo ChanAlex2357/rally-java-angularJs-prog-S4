@@ -1,3 +1,33 @@
-<div class="container text-center">
-    <h1 class="h1 text-primary"> See General Ranking </h1>
-</div>
+<div class="row">
+    <div class="mx-auto col-lg-10">
+      <h1 class="my-5">Classement général</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col "># Rang</th>
+            <th scope="col">ID pilote</th>
+            <th scope="col">Nom du pilote</th>
+            <th scope="col">Categorie</th>
+            <th scope="col">Temps total</th>
+            <th scope="col">Points general</th>
+            <th scope="col">Points power</th>
+            <th scope="col">Points total</th>
+            <th scope="col">Wins</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="ranking in rankings">
+            <th scope="row">{{ ranking.finalRank }}</th>
+            <td>{{ ranking.idPilote }}</td>
+            <td>{{ ranking.nomPilote }}</td>
+            <td>{{ ranking.nomCategorie }}</td>
+            <td>{{ ranking.totalTime }}</td>
+            <td>{{ ranking.generalPoints }}</td>
+            <td>{{ ranking.powerPoints }}</td>
+            <td>{{ ranking.totalPoints }}</td>
+            <td>{{ ranking.rallyWins }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
