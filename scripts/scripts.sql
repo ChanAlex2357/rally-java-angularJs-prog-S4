@@ -182,15 +182,19 @@ JOIN v_power_special ON v_special_ranked.id_rally = v_power_special.id_rally
                       AND v_special_ranked.id_special = v_power_special.id_special
 ORDER BY v_special_ranked.id_rally,v_special_ranked.rang;
 
+
 -- Cette vue associe le classement des power specials avec les points dont le type est 3.
 CREATE OR REPLACE VIEW v_power_rank_point AS
 SELECT
     v_power_rank.*,
-    COALESCE(point.valeur, 0) AS points
+    COALESCE (
+        point.valeur,0
+      ) AS points
 FROM v_power_rank
 LEFT JOIN point ON point.rang = v_power_rank.rang
                 AND point.id_type_point = 3
 ORDER BY id_rally,rang;
+
 
 -- TOTAL DE POINT PAR RALLY
 CREATE OR REPLACE VIEW v_total_points_per_rally AS
@@ -202,7 +206,7 @@ SELECT
     v_rally_general_ranked_points.id_categorie,
     v_rally_general_ranked_points.temps,
     v_rally_general_ranked_points.points AS general_points,
-    COALESCE(v_power_rank_point.points, 0) AS power_points,
+    COALESCE(v_power_rank_point.points, 0 ) AS power_points,
     (v_rally_general_ranked_points.points + COALESCE(v_power_rank_point.points, 0)) AS total_points
 FROM v_rally_general_ranked_points
 LEFT JOIN v_power_rank_point ON v_rally_general_ranked_points.id_rally = v_power_rank_point.id_rally
@@ -258,3 +262,4 @@ SELECT
     v_pre_categorie_rank.*,
     ROW_NUMBER() OVER (ORDER BY v_pre_categorie_rank.id_categorie,v_pre_categorie_rank.total_points DESC ) AS rank
 FROM v_pre_categorie_rank;
+
