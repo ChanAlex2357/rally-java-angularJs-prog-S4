@@ -2,11 +2,20 @@ package rally.models;
 
 import java.time.LocalTime;
 
+import jca.dao.models.annotations.Attribute;
+import jca.dao.models.annotations.EntityModels;
+
+@EntityModels(name = "Chrono" )
 public class Chrono {
+    @Attribute(name = "id_chrono" )
     private int idChrono;
+    @Attribute(name = "id_rally")
     private int idRally;
+    @Attribute(name = "id_special")
     private int idSpecial;
+    @Attribute(name = "id_pilote")
     private int idPilote;
+    @Attribute(name = "temps")
     private LocalTime temps;
 
     public Chrono(){}
