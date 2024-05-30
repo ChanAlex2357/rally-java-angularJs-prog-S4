@@ -8,6 +8,22 @@ public class Chrono {
     private int idSpecial;
     private int idPilote;
     private LocalTime temps;
+
+    public Chrono(){}
+    public Chrono(
+        int idRally,
+        int idSpecial,
+        int idPilote,
+        int hour,
+        int minute,
+        int seconds,
+        int nano
+    ){
+        setIdRally(idRally);
+        setIdPilote(idPilote);
+        setIdRally(idRally);
+        setTemps(hour, minute, seconds, nano);
+    }
     public int getIdChrono() {
         return idChrono;
     }
@@ -38,4 +54,10 @@ public class Chrono {
     public void setTemps(LocalTime temps) {
         this.temps = temps;
     }
+    private void setTemps(int hour , int minute , int seconds , int nano){
+        LocalTime time = LocalTime.of(hour, minute, seconds,nano);
+        setTemps(time);
+    }
+
+
 }
