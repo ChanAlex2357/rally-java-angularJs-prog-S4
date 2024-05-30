@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Set the page as a angular app ( RallyApp ) -->
-<html lang="en" >
+<html lang="en" ng-app="RallyApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,21 +27,12 @@
             </div>
           </nav>
     </header>
-    <!-- FORMULAIRE SECTION -->
-    <section ng-app="formulaireApp">
-      <!-- VIEW CONTAINER -->
-      <div class="container" ng-view> </div>
-    </section>
-    <!-- TABLEAU RANKING SECTION -->
-    <section ng-app="RankingApp">
-      <!-- VIEW CONTAINER -->
-      <div class="container" ng-view> </div>
-    </section>
+    <!-- VIEW CONTAINER -->
+    <div class="container" ng-view> </div>
     <!-- JS Imports -->
     <script src="assets/js/bootstrap/bootstrap.min.js"></script>
     <script src="assets/js/angular/angular.min.js"></script>
     <script src="assets/js/angular-route/angular-route.min.js"></script>
-    <script src="assets/js/apps/ranking.js"></script>
-    <script src="assets/js/apps/formulaire.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
