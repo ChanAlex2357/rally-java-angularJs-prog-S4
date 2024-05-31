@@ -1,0 +1,65 @@
+<div class="container mg-auto">
+    <form action="" method="post" class="p-2">
+        <!-- Id Rally -->
+        <div class="form-group mb-2">
+            <label for="rally" class="form-label">ID Rallye</label>
+            <select name="idRally" id="rally" class="form-select">
+                <option value="">-- Veuiller choisir le rallye --</option>
+                <option value="1">Rallye 1</option>
+                <option value="2">Rallye 2</option>
+                <option value="3">Rallye 3</option>
+            </select>
+        </div>
+        <!-- Id Special -->
+        <div class="form-group mb-2">
+            <label for="special" class="form-label">ID Special</label>
+            <select name="idSpecial" id="special" class="form-select">
+                <option value="">-- Veuiller choisir le special --</option>
+                <option value="1">Special 1</option>
+                <option value="2">Special 2</option>
+                <option value="3">Special 3</option>
+                <option value="4">Special 4</option>
+                <option value="5">Special 5</option>
+                <option value="6">Special 6</option>
+            </select>
+        </div>
+        <!-- Id Pilote -->
+        <div class="form-group mb-2">
+            <label for="pilote" class="form-label">ID Pilote</label>
+            <select name="idPilote" id="pilote" class="form-select">
+                <option value="">-- Veuiller choisir le pilote --</option>
+                <option value="1">C1</option>
+                <option value="2">C2</option>
+                <option value="3">C3</option>
+                <option value="4">C4</option>
+                <option value="5">C5</option>
+                <option value="6">C6</option>
+            </select>
+        </div>
+        <!-- temps -->
+        <div class="form-group mb-2">
+            <label for="tempsParts" class="form-label">Temps</label>
+            <div id="tempsParts" class="row b-2">
+                <div class="col-md input-group">
+                    <b>h : </b>
+                    <input type="number"class="form-control" name="hour" id="tempsHours" min="0" value="0" placeholder="Heures">
+                </div>
+                <div class="col-md input-group">
+                    <b>mn : </b>
+                    <input type="number" class="form-control" name="minute" id="tempsMinutes" min="0" value="0" placeholder="Minutes">
+                </div>
+                <div class="col-md input-group">
+                    <b>secs : </b>
+                    <input type="number" class="form-control" name="second" id="tempsSeconds" min="0" value="0" placeholder="Secondes">
+                </div>
+                <div class="col-md input-group">
+                    <b>millis : </b>
+                    <input type="number" class="form-control" name="nano" id="tempsNanos" min="0" value="0" placeholder="Nanos">
+                </div>
+            </div>
+        </div>
+        <div>
+            <input class="btn btn-dark" type="submit" value="Valider">
+        </div>
+    </form>
+</div>

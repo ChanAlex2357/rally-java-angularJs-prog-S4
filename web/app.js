@@ -14,6 +14,9 @@ rally_app.config(['$routeProvider' ,  $routeProvider =>{
             templateUrl: 'views/categorie-rank.html',
             controller: 'CategoryRankController'
         })
+        .when('/chrono',{
+            templateUrl:'views/chrono.html'
+        })
         .otherwise({
             redirectTo: '/index'
         });
