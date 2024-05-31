@@ -260,6 +260,11 @@ GROUP BY v_rally_categorie_ranked_points.id_pilote,
 CREATE OR REPLACE VIEW v_categorie_rank AS
 SELECT
     v_pre_categorie_rank.*,
-    ROW_NUMBER() OVER (ORDER BY v_pre_categorie_rank.id_categorie,v_pre_categorie_rank.total_points DESC ) AS rank
+    ROW_NUMBER() Over (
+        ORDER BY 
+            v_pre_categorie_rank.id_categorie,
+            v_pre_categorie_rank.nom_categorie,
+            v_pre_categorie_rank.total_points DESC 
+        ) AS rank
 FROM v_pre_categorie_rank;
 
