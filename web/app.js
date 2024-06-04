@@ -14,8 +14,15 @@ rally_app.config(['$routeProvider' ,  $routeProvider =>{
             templateUrl: 'views/categorie-rank.html',
             controller: 'CategoryRankController'
         })
+        .when('/rank/rankings',{
+            templateUrl:'views/rankings.html',
+            controller:'RankingsController'
+        })
+        .when('/chrono',{
+            templateUrl:'views/chrono.html'
+        })
         .otherwise({
-            redirectTo: '/index'
+            redirectTo:'/index'
         });
 }]);
 
@@ -42,10 +49,52 @@ rally_app.filter('formatTime', function() {
     };
 });
 
-rally_app.controller('FinalRankingController', ['$scope', '$http', function ($scope, $http) {
-    $http.get('rally/api/finalRank').then(response => $scope.rankings = response.data);
-}]);
+// FUNCTIONS
+/**
+ * Recupere le ranking general
+ */
+function getGeneralRankings($scope,$http){
+    $http.get('rally/api/finalRank')
+    .then(
+        response => $scope.rankings_G = response.data
+    );
+}
+/**
+ * Recupere le ranking par categorie
+ */
+function getCategorieRankings ($scope, $http) {
+    $http.get('rally/api/categorieRank')
+    .then(
+        response => $scope.rankings_C = response.data
+    );
+}
+// CONTROLLERS
+rally_app.controller(
+    'FinalRankingController',
+    [
+        '$scope','$http',
+        function($scope,$http){
+            getGeneralRankings($scope,$http)
+        }
+    ]);
 
-rally_app.controller('CategoryRankController', ['$scope', '$http', function ($scope, $http) {
-    $http.get('rally/api/categorieRank').then(response => $scope.rankings = response.data);
-}]);
+rally_app.controller(
+    'CategoryRankController', 
+    [
+        '$scope', '$http',
+        function($scope,$http){
+            getCategorieRankings($scope,$http)
+        }
+    ]
+);
+
+rally_app.controller(
+    'RankingsController' , 
+    [
+        '$scope' , '$http',
+        function($scope, $http){
+            getGeneralRankings($scope,$http);
+            getCategorieRankings($scope,$http);
+        }
+    ]
+);
